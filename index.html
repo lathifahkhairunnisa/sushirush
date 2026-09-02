@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7f9478">
+  <title>eatstime — Sushi Rush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">🍣</span><div><strong>eatstime</strong><small>fresh sushi, fast fingers</small></div></div>
+    <div class="top-actions">
+      <button class="sound" id="soundBtn" aria-label="Suara">🔊</button>
+      <button class="how-btn" id="howBtn">Cara Main</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-card">
+      <div>
+        <p class="eyebrow">MINI GAME • SUSHI RUSH</p>
+        <h1>Jadi sushi master<br><em>tercepat hari ini.</em></h1>
+        <p class="hero-text">Tangkap sushi sesuai pesanan sebelum waktu habis. Semakin cepat dan akurat, semakin tinggi kombo dan skormu!</p>
+        <div class="hero-pills"><span>⚡ Cepat</span><span>🎯 Fokus</span><span>🏆 Kombo</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="plate">🍣<span>🍙</span><i>🥢</i></div>
+        <div class="spark one">✦</div><div class="spark two">✦</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article><span>SKOR</span><b id="score">0</b></article>
+      <article><span>LEVEL</span><b id="level">1</b></article>
+      <article><span>KOMBO</span><b id="combo">x0</b></article>
+      <article class="timer-card"><span>WAKTU</span><b id="timer">60</b><div class="timer-bar"><i id="timerFill"></i></div></article>
+    </section>
+
+    <section class="game-layout">
+      <div class="game-panel">
+        <div class="order-box">
+          <div>
+            <p class="eyebrow">PESANAN SAAT INI</p>
+            <h2 id="orderName">Tekan Mulai untuk bermain!</h2>
+            <p id="orderHint">Sushi yang diminta akan muncul di sini.</p>
+          </div>
+          <div class="target-sushi" id="targetEmoji">🍣</div>
+        </div>
+
+        <div class="conveyor-wrap">
+          <div class="conveyor-label"><span>🍱 MEJA SUSHI</span><small id="roundInfo">Siap bermain</small></div>
+          <div class="conveyor" id="conveyor"></div>
+        </div>
+
+        <div class="game-actions">
+          <button class="start-btn" id="startBtn">Mulai Game 🍣</button>
+          <button class="pause-btn" id="pauseBtn" disabled>⏸ Jeda</button>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="mini-card">
+          <p class="eyebrow">MISI HARI INI</p>
+          <h3 id="missionTitle">Tangkap 10 sushi</h3>
+          <div class="mission-progress"><i id="missionFill"></i></div>
+          <small id="missionText">0 / 10 sushi berhasil</small>
+        </div>
+        <div class="mini-card leaderboard">
+          <p class="eyebrow">REKOR PRIBADI</p>
+          <div class="record"><span>🏆</span><div><b id="bestScore">0</b><small>skor terbaik</small></div></div>
+          <div class="rank-list">
+            <div><span>🥇</span><b>Sushi Sensei</b><em>1.500</em></div>
+            <div><span>🥈</span><b>Quick Roll</b><em>1.000</em></div>
+            <div><span>🥉</span><b>Rice Rookie</b><em>500</em></div>
+          </div>
+        </div>
+        <div class="mini-card tip-card">
+          <p class="eyebrow">TIP</p>
+          <p>Jangan asal klik! Klik sushi yang sesuai pesanan untuk menjaga kombo.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="collection">
+      <div class="section-title"><div><p class="eyebrow">KOLEKSI SUSHI</p><h2>Kenali menu permainan.</h2></div><span id="collectionCount">0 / 6 ditemukan</span></div>
+      <div class="sushi-grid" id="sushiGrid"></div>
+    </section>
+  </main>
+
+  <footer>eatstime © 2026 <span>made for sushi lovers.</span></footer>
+</div>
+
+<div class="modal" id="howModal">
+  <div class="modal-box">
+    <button class="close" data-close="howModal">×</button>
+    <p class="eyebrow">CARA BERMAIN</p>
+    <h2>Simple. Cepat. Seru.</h2>
+    <ol>
+      <li>Tekan <b>Mulai Game</b>.</li>
+      <li>Lihat sushi yang diminta pada kartu pesanan.</li>
+      <li>Klik sushi yang sesuai di meja sushi.</li>
+      <li>Jawaban benar menambah skor dan kombo.</li>
+      <li>Jawaban salah mengurangi waktu dan memutus kombo.</li>
+    </ol>
+    <button class="start-btn modal-start">Siap Main! 🍣</button>
+  </div>
+</div>
+
+<div class="modal" id="resultModal">
+  <div class="modal-box result-box">
+    <div class="result-icon" id="resultIcon">🍣</div>
+    <p class="eyebrow">GAME SELESAI</p>
+    <h2 id="resultTitle">Kerja bagus!</h2>
+    <p id="resultText"></p>
+    <div class="result-score"><span>SKOR AKHIR</span><b id="finalScore">0</b></div>
+    <button class="start-btn" id="playAgain">Main Lagi 🔥</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
