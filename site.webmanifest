@@ -1,0 +1,16 @@
+{
+  "name": "SushiRush — eatstime",
+  "short_name": "SushiRush",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#faf8f1",
+  "theme_color": "#7f9478",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
